@@ -35,6 +35,9 @@ model.compile(optimizer = 'adam',loss = 'sparse_categorical_crossentropy',metric
 
 history = model.fit_generator(train_datagen, steps_per_epoch=int(np.ceil(train_samples / float(batch_size))), epochs=epochs, validation_data=val_datagen, validation_steps=int(np.ceil(val_samples / float(batch_size))))
 
+model.save('my_model.h5')
+
+
 acc = history.history['acc']
 val_acc = history.history['val_acc']
 
